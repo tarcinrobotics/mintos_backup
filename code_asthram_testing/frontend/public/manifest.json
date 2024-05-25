@@ -1,0 +1,18 @@
+{
+  "short_name": "Code Asthram",
+  "name": "Code Asthram - A Tarcin Product",
+  "icons": [
+    {
+      "src": "favicon.png",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "description": "Welcome to Code Asthram - Your Path to Coding Excellence!  Our software solution, Code-Asthram, aims to make coding accessible to all age groups, including students. This assistive technology has the most potential to address the needs of students receiving special education out of all those used in the field"
+}

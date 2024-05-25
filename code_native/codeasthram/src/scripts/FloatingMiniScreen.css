@@ -1,0 +1,225 @@
+/* General styles for the floating screen */
+.floating-screen {
+  position: fixed;
+  bottom: 10%;
+  right: 10%;
+  width: 300px;
+  height: auto;
+  max-height: 90vh;
+  background: linear-gradient(135deg, #001e36, #20666b); /* Custom gradient */
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: auto;
+  color: #ffffff;
+  font-family: 'Comic Neue', cursive;
+}
+
+/* Image specific styles */
+.floating-screen img {
+  margin-top: 20px;
+  max-width: 100%;
+  max-height: 80vh;
+  border-radius: 10px;
+}
+
+/* Button styling for close, toggle views, and navigation */
+.close-button, .toggle-view-button, .back-to-image-button {
+  position: absolute;
+  top: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  color: #ffffff;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.close-button:hover, .toggle-view-button:hover, .back-to-image-button:hover {
+  transform: scale(1.1);
+  color: #ffd700;
+}
+
+.close-button {
+  right: 10px;
+}
+
+.toggle-view-button.hints-button {
+  left: 10px; /* Position hints button at the top left corner */
+  top: 10px;
+}
+
+.toggle-view-button.questions-button {
+  left: 60px; /* Position right next to the hints button */
+  top: 10px;
+}
+
+.back-to-image-button {
+  left: 10px; /* Further space out from questions button */
+  top: 10px;
+}
+
+/* Styles for displaying project hints and questions */
+.project-hints, .project-questions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5px; /* Increased padding for better spacing */
+}
+
+.project-hints p, .project-questions p { 
+  margin: 12px 0; /* Vertical spacing */
+  padding: 0 40px; /* Sufficient padding on both sides */
+  text-align: left; /* Center-align text for better presentation */
+  color: #E0E0E0; /* A softer shade of white for readability */
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent background for depth */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for 3D effect */
+  font-size: 16px; /* Larger font size */
+  font-weight: 500; /* Medium weight for text */
+  overflow-wrap: break-word; /* Ensure text breaks correctly */
+  transition: all 0.3s ease-in-out; /* Smooth transition for hover effects */
+  border: 1px solid #ffffff30; /* Subtle border for depth */
+}
+
+.project-hints p:hover {
+  color: #ffffff; /* Brighter white on hover for interaction feedback */
+  background: rgba(0, 0, 0, 0.7); /* Darker background on hover */
+  transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+/* Styling for question options */
+.question-option {
+  background-color: rgba(32, 102, 107, 0.8); /* Darker shade with transparency for depth */
+  color: #ffffff; /* White text for contrast */
+  border: 1px solid #ffffff30; /* Subtle white border */
+  padding: 10px 20px; /* Generous padding for a better touch area */
+  margin: 8px 0; /* Spacing between options */
+  cursor: pointer;
+  font-size: 16px; /* Optimal font size for readability */
+  font-weight: bold; /* Bold font for emphasis */
+  border-radius: 25px; /* Rounded edges for a modern look */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Soft shadow for 3D effect */
+  transition: all 0.3s ease-in-out; /* Smooth transition for interactive effects */
+  width: calc(100% - 40px); /* Full width minus padding, to avoid touching navigation buttons */
+  text-align: center; /* Center text alignment */
+}
+
+.question-option:hover {
+  background-color: rgba(32, 102, 107, 1); /* Less transparency on hover */
+  color: #ffd700; /* Highlight text color on hover for interaction feedback */
+  transform: translateY(-3px); /* Slight raise effect on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover for depth */
+}
+.correct-answer {
+  color: #00ff00; /* Bright green for success */
+  font-size: 18px; /* Slightly reduced to fit better */
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: correctPulse 1.5s ease-out forwards; /* Adjusted animation */
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.7); /* Matching theme */
+  border-radius: 10px;
+  margin-top: 10px;
+  box-shadow: 0 4px 8px rgba(0, 255, 0, 0.6); /* Subtle green glow */
+}
+
+@keyframes correctPulse {
+  0% {
+    transform: scale(1);
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+  50% {
+    transform: scale(1.1);
+    background-color: rgba(0, 255, 0, 0.3);
+  }
+  100% {
+    transform: scale(1);
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+}
+
+.incorrect-answer {
+  color: #ff6347; /* Tomato red for incorrect answers */
+  font-size: 18px; /* Slightly reduced to fit better */
+  display: flex;
+  font-weight: bold;
+  align-items: center;
+  justify-content: center;
+  animation: shake 0.5s ease-in-out;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.7); /* Matching theme */
+  border-radius: 10px;
+  margin-top: 10px;
+  box-shadow: 0 4px 8px rgba(255, 99, 71, 0.6); /* Subtle red glow */
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-10px);
+  }
+  75% {
+    transform: translateX(10px);
+  }
+}
+
+.hint-title {
+  width: 100%;  /* Ensures the title spans the entire width of the container */
+  text-align: center;  /* Centers the title text horizontally */
+  color: #ffd700;  /* Golden color for emphasis and style */
+  font-size: 18px;  /* Size that matches the general theme */
+  font-weight: bold;  /* Bold text for better visibility and impact */
+  margin-top: 10px;  /* Top margin for spacing from previous content */
+  margin-bottom: 5px;  /* Bottom margin for spacing from the description */
+  padding: 5px 0;  /* Padding to enhance touch responsiveness, if needed */
+  background-color: rgba(0, 0, 0, 0.6);  /* Semi-transparent dark background for better readability */
+  border-radius: 8px;  /* Rounded corners to fit the aesthetic of other components */
+  box-shadow: 0 2px 4px rgba(255, 215, 0, 0.4);  /* Subtle golden glow to raise the element slightly */
+}
+
+
+
+/* Positioning and Styling for hint navigation buttons */
+/* Positioning and Styling for hint navigation buttons */
+.hint-nav-button {
+  background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent for a sleek look */
+  color: #ffffff; /* Maintains contrast with the background */
+  border: none; /* Cleaner look without borders */
+  padding: 10px; /* Sufficient padding for clickable area */
+  cursor: pointer;
+  font-size: 20px; /* Adjusted size for better visibility */
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+  position: absolute; /* Absolute positioning to float over the content */
+  width: 40px; /* Fixed width for uniformity */
+  height: 40px; /* Fixed height for uniformity */
+  display: flex;
+  z-index: 999;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px; /* Circular buttons */
+}
+
+.hint-nav-button:hover {
+  background-color: rgba(255, 255, 255, 0.2); /* Lighter on hover */
+  color: #ffd700; /* Gold color on hover for a magical feel */
+  transform: scale(1.1); /* Enlarge slightly on hover */
+}
+
+.hint-nav-button.right {
+  right: 10px; /* Positioned on the right inside the container */
+}
+
+.hint-nav-button.left {
+  left: 10px; /* Positioned on the left inside the container */
+}

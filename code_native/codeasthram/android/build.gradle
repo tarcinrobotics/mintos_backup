@@ -1,0 +1,41 @@
+buildscript {
+    ext {
+        buildToolsVersion = "34.0.0"
+        minSdkVersion = 23
+        compileSdkVersion = 34
+        targetSdkVersion = 34
+        ndkVersion = "26.1.10909125"
+        kotlinVersion = "1.6.10"
+    }
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath("com.android.tools.build:gradle")
+        classpath("com.facebook.react:react-native-gradle-plugin")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion")
+        // Add the following line to enforce Kotlin version for React Native Gradle Plugin
+        classpath("org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion")
+    }
+}
+
+apply plugin: "com.facebook.react.rootproject"
+
+configurations {
+    compile.exclude group: 'org.jetbrains.kotlin', module: 'kotlin-stdlib'
+}
+
+// Add the following block to ensure the Kotlin version compatibility
+subprojects {
+    afterEvaluate {
+        if (project.hasProperty("android")) {
+            android {
+                kotlinOptions {
+                    jvmTarget = '1.8'
+                    freeCompilerArgs = ["-Xjvm-default=compatibility"]
+                }
+            }
+        }
+    }
+}

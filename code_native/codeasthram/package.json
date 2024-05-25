@@ -1,0 +1,79 @@
+{
+    "name": "reactblockly-customblocks",
+    "version": "0.1.0",
+    "private": true,
+    "dependencies": {
+      "@react-native-async-storage/async-storage": "^1.17.11",
+      "@react-native-community/masked-view": "^0.1.11",
+      "@react-navigation/native": "^6.0.8",
+      "@react-navigation/stack": "^6.0.11",
+      "axios": "^1.7.2",
+      "react": "^18.2.0",
+      "react-dom": "^18.2.0",
+      "react-native": "^0.74.1",
+      "react-native-gesture-handler": "^2.1.0",
+      "react-native-reanimated": "^2.3.1",
+      "react-native-safe-area-context": "^3.3.2",
+      "react-native-screens": "^3.9.0",
+      "react-native-svg": "^12.1.0",
+      "react-native-svg-transformer": "^1.4.0",
+      "react-native-vector-icons": "^10.1.0",
+      "react-native-web": "^0.18.0",
+      "react-redux": "^7.2.6",
+      "redux": "^4.1.2"
+    },
+    "scripts": {
+      "android": "react-native run-android",
+      "ios": "react-native run-ios",
+      "start": "react-native start",
+      "test": "jest",
+      "lint": "eslint .",
+      "lint:fix": "eslint . --fix",
+      "prettier": "prettier --write ."
+    },
+    "jest": {
+      "preset": "react-native"
+    },
+    "eslintConfig": {
+      "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended",
+        "plugin:react-native/all"
+      ],
+      "parserOptions": {
+        "ecmaFeatures": {
+          "jsx": true
+        }
+      },
+      "plugins": [
+        "react",
+        "react-native"
+      ],
+      "rules": {
+        "react-native/no-unused-styles": "error",
+        "react-native/split-platform-components": "error",
+        "react-native/no-inline-styles": "error",
+        "react-native/no-color-literals": "error"
+      }
+    },
+    "prettier": {
+      "singleQuote": true,
+      "trailingComma": "all"
+    },
+    "browserslist": {
+      "production": [
+        ">0.2%",
+        "not dead",
+        "not op_mini all"
+      ],
+      "development": [
+        "last 1 chrome version",
+        "last 1 firefox version",
+        "last 1 safari version"
+      ]
+    },
+    "devDependencies": {
+      "react-native-gradle-plugin": "^0.71.19"
+    }
+  }
+  

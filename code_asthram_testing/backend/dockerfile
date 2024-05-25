@@ -1,0 +1,60 @@
+# Use the official Python image from the Docker Hub
+FROM python:3.9-slim
+
+# Install system dependencies for some Python packages
+RUN apt-get update && \
+    apt-get install -y \
+    python3-tk \
+    python3-dev \
+    build-essential \
+    libssl-dev \
+    libffi-dev \
+    libxml2-dev \
+    libxslt1-dev \
+    zlib1g-dev \
+    libjpeg62-turbo-dev \
+    libfreetype6-dev \
+    libhdf5-dev \
+    libpng-dev \
+    libtiff-dev \
+    libavcodec-dev \
+    libavformat-dev \
+    libswscale-dev \
+    libv4l-dev \
+    libxvidcore-dev \
+    libx264-dev \
+    libgtk2.0-dev \
+    pkg-config \
+    libatlas-base-dev \
+    gfortran \
+    openmpi-bin \
+    openmpi-common \
+    openmpi-doc \
+    libopenmpi-dev \
+    vim
+
+# Install required Python libraries
+RUN pip install --upgrade pip && \
+    pip install \
+    numpy \
+    pandas \
+    tensorflow \
+    nltk \
+    scikit-learn \
+    django \
+    flask \
+    opencv-python-headless \
+    matplotlib \
+    seaborn
+
+# Set the working directory in the container
+WORKDIR /app
+
+# Set environment variable for Python to run in unbuffered mode
+ENV PYTHONUNBUFFERED=1
+
+# Copy the local code to the container (optional if using volume mounting)
+COPY . .
+
+# Command to run when the container starts
+CMD ["python", "execute.py"]

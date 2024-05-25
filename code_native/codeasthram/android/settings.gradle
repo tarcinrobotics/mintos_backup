@@ -1,0 +1,19 @@
+rootProject.name = 'codeasthram'
+
+// Define the absolute path to your Node.js executable
+def nodePath = "/home/tarcin/.nvm/versions/node/v18.20.2/bin/node"
+
+apply from: file("../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesSettingsGradle(settings)
+
+// Function to get Node.js path for the CLI
+def getNodePath() {
+    return nodePath
+}
+
+// Use the function to set the node path
+rootProject.ext {
+    node = getNodePath()
+}
+
+include ':app'
+includeBuild('../node_modules/react-native-gradle-plugin')
